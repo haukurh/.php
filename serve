@@ -1,0 +1,27 @@
+#!/bin/bash
+
+p=8000
+t=.
+v=8.1
+
+while getopts ":t:p:v:" opt; do
+  case $opt in
+    p) p="$OPTARG"
+    ;;
+    t) t="$OPTARG"
+    ;;
+    v) v="$OPTARG"
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    exit 1
+    ;;
+  esac
+
+  case $OPTARG in
+    -*) echo "Option $opt needs a valid argument"
+    exit 1
+    ;;
+  esac
+done
+
+docker run --rm -it -v $(pwd):/app -w="/app" -p $p:$p php:${v}-cli-alpine3.15 php -S 0.0.0.0:$p -t $t
