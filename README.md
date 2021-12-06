@@ -25,6 +25,7 @@ Possible flags:
 - `-p` port			Port which server runs on (default 8000)
 - `-v` PHP version	PHP version which the server run on. (default 8.1)
 
+**Example**
 ```shell
-server -v 8.1 -p 8001 -t pub
+serve -v 8.1 -p 8001 -t pub
 ```
