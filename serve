@@ -24,4 +24,4 @@ while getopts ":t:p:v:" opt; do
   esac
 done
 
-docker run --rm -it -v $(pwd):/app -w="/app" -p $p:$p php:${v}-cli-alpine3.15 php -S 0.0.0.0:$p -t $t
+docker run --rm -it -v $(pwd):/app -w="/app" -p $p:$p php:${v}-cli-alpine php -S 0.0.0.0:$p -t $t
